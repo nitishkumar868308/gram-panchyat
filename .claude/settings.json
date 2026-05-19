@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir d:\\\\village)",
+      "Bash(npm --version)",
+      "Bash(not exist *)",
+      "PowerShell(if \\(-not \\(Test-Path \"d:\\\\village\"\\)\\) { New-Item -ItemType Directory -Path \"d:\\\\village\" | Out-Null }; Get-ChildItem \"d:\\\\village\" -Force | Select-Object Name)",
+      "PowerShell(Set-Location \"d:\\\\village\"; $env:NEXT_TELEMETRY_DISABLED = \"1\"; npx --yes next build 2>&1 | Out-String)",
+      "PowerShell(Set-Location \"d:\\\\village\"; $env:NEXT_TELEMETRY_DISABLED = \"1\"; npm run dev 2>&1)",
+      "Bash(curl -s -o /dev/null -w \"Home: %{http_code}\\\\n\" http://localhost:3001/)",
+      "Bash(curl -s -o /dev/null -w \"About: %{http_code}\\\\n\" http://localhost:3001/about)",
+      "Bash(curl -s -o /dev/null -w \"Initiatives: %{http_code}\\\\n\" http://localhost:3001/initiatives)",
+      "Bash(curl -s -o /dev/null -w \"Panchayat: %{http_code}\\\\n\" http://localhost:3001/panchayat)",
+      "Bash(curl -s -o /dev/null -w \"Gallery: %{http_code}\\\\n\" http://localhost:3001/gallery)",
+      "Bash(curl -sI -L --max-time 10 \"https://videos.pexels.com/video-files/4625746/4625746-uhd_2560_1440_30fps.mp4\")",
+      "Bash(curl -sI -L --max-time 10 \"https://videos.pexels.com/video-files/5057541/5057541-uhd_2560_1440_24fps.mp4\")",
+      "Bash(curl -sI -L --max-time 10 \"https://videos.pexels.com/video-files/2491284/2491284-hd_1920_1080_30fps.mp4\")",
+      "Bash(curl -sI -L --max-time 10 \"https://videos.pexels.com/video-files/2932301/2932301-uhd_2732_1440_25fps.mp4\")",
+      "Bash(curl -sI -L --max-time 10 \"https://cdn.coverr.co/videos/coverr-india-mountain-village-3236/1080p.mp4\")",
+      "Bash(curl -sI -L --max-time 10 \"https://assets.mixkit.co/videos/4612/4612-720.mp4\")",
+      "Bash(curl -sI -L --max-time 10 \"https://assets.mixkit.co/videos/preview/mixkit-wheat-field-at-sunset-1417-large.mp4\")",
+      "Bash(curl -s -o /dev/null -w \"Home: %{http_code} in %{time_total}s\\\\n\" http://localhost:3001/)",
+      "PowerShell(Set-Location \"d:\\\\village\"; $env:NEXT_TELEMETRY_DISABLED = \"1\"; if \\(Test-Path \".next\"\\) { Remove-Item -Recurse -Force \".next\" -ErrorAction SilentlyContinue }; npx --yes next build 2>&1 | Out-String)",
+      "Bash(curl -s -o /dev/null -w \"Home: %{http_code} \\(%{size_download} bytes, %{time_total}s\\)\\\\n\" http://localhost:3001/)",
+      "Bash(curl -s http://localhost:3001/)",
+      "Bash(curl -sLI -w \"FINAL: %{http_code}\\\\n\" http://localhost:3001/)",
+      "Bash(curl -sLI -w \"FINAL: %{http_code}\\\\n\" http://localhost:3001/gallery)",
+      "Bash(curl -s http://localhost:3001/gallery)",
+      "Bash(curl -sLI -w \"Status: %{http_code} | Time: %{time_total}s\\\\n\" http://localhost:3000/)",
+      "Bash(curl -sLI -w \"Status: %{http_code}\\\\n\" http://localhost:3000/gallery)",
+      "Bash(curl -sLI -w \"Status: %{http_code}\\\\n\" http://localhost:3000/about)",
+      "Bash(curl -s -o /dev/null -w \"Home: %{http_code} \\(%{time_total}s\\)\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s http://localhost:3000/)",
+      "PowerShell($conn = Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue; if \\($conn\\) { $conn | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue } }; Start-Sleep -Milliseconds 800; $left = Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue; if \\($left\\) { \"Still in use by PID: $\\($left.OwningProcess\\)\" } else { \"Port 3000 free ✓\" })",
+      "PowerShell($listening = Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue; if \\($listening\\) { \"Still LISTENING on 3000: PID $\\($listening.OwningProcess\\)\" } else { \"Port 3000 LISTEN: free ✓ \\(any remaining TIME_WAIT entries clear themselves\\)\" }; Get-Process node -ErrorAction SilentlyContinue | Measure-Object | ForEach-Object { \"Node processes running: $\\($_.Count\\)\" })"
+    ]
+  }
+}

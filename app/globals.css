@@ -1,0 +1,295 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #faf5eb;
+  --color-ink: #2c1810;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #b85042;
+  color: #faf5eb;
+}
+
+/* Premium paper texture */
+.bg-paper {
+  background-color: #faf5eb;
+  background-image:
+    radial-gradient(at 20% 30%, rgba(217, 119, 6, 0.06) 0px, transparent 50%),
+    radial-gradient(at 80% 70%, rgba(63, 102, 52, 0.05) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(184, 80, 66, 0.04) 0px, transparent 50%);
+}
+
+.bg-grain {
+  position: relative;
+}
+.bg-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.17  0 0 0 0 0.09  0 0 0 0 0.06  0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.5'/></svg>");
+  opacity: 0.35;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* Decorative dotted block (warli-inspired) */
+.dot-grid {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(122, 46, 39, 0.18) 1px,
+    transparent 0
+  );
+  background-size: 14px 14px;
+}
+
+/* Soft underline animation */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease;
+}
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+/* Hero gradient overlay for video readability */
+.hero-overlay {
+  background:
+    linear-gradient(180deg, rgba(28, 14, 8, 0.25) 0%, rgba(28, 14, 8, 0.55) 60%, rgba(28, 14, 8, 0.8) 100%),
+    radial-gradient(60% 60% at 50% 40%, rgba(217, 119, 6, 0.18) 0%, transparent 70%);
+}
+
+/* Section divider — torn-paper feel */
+.divider-tear {
+  --c: #2c1810;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(44, 24, 16, 0.25) 20%,
+    rgba(44, 24, 16, 0.25) 80%,
+    transparent 100%
+  );
+}
+
+/* ─── Animated village scene keyframes ─────────────────────────────── */
+@keyframes sunRise {
+  0% { transform: translateY(80px); opacity: 0.65; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+@keyframes raysSpin {
+  0% { transform: rotate(0deg); opacity: 0.35; }
+  50% { opacity: 0.55; }
+  100% { transform: rotate(360deg); opacity: 0.35; }
+}
+@keyframes mistDrift {
+  0% { transform: translateX(-120px); }
+  100% { transform: translateX(120px); }
+}
+@keyframes mistDriftSlow {
+  0% { transform: translateX(80px); }
+  100% { transform: translateX(-80px); }
+}
+@keyframes birdFly {
+  0% { transform: translate(-200px, 60px); opacity: 0; }
+  10% { opacity: 0.85; }
+  90% { opacity: 0.85; }
+  100% { transform: translate(1700px, -80px); opacity: 0; }
+}
+@keyframes wheatSway {
+  0% { transform: rotate(-3deg); }
+  100% { transform: rotate(3deg); }
+}
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* New characters & objects */
+@keyframes kiteFloat {
+  0%   { transform: translate(380px, 180px); }
+  25%  { transform: translate(420px, 150px) rotate(4deg); }
+  50%  { transform: translate(460px, 195px) rotate(-3deg); }
+  75%  { transform: translate(430px, 165px) rotate(2deg); }
+  100% { transform: translate(380px, 180px); }
+}
+@keyframes kiteFlutter {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(6deg); }
+}
+@keyframes kidJump {
+  0%, 100% { transform: translate(16px, 0); }
+  50% { transform: translate(16px, -6px); }
+}
+@keyframes childBob {
+  0%, 100% { transform: translate(-22px, 8px); }
+  50% { transform: translate(-22px, 4px); }
+}
+@keyframes cartCross {
+  0%   { transform: translate(-220px, 808px); }
+  48%  { transform: translate(1820px, 798px); }
+  /* Off-screen wait, then re-enter from the other side */
+  50%  { transform: translate(-220px, 808px); }
+  100% { transform: translate(-220px, 808px); }
+}
+@keyframes wheelSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+@keyframes cattleHeadA {
+  0%, 100% { transform: translate(0,0) rotate(0deg); }
+  35% { transform: translate(0, 4px) rotate(8deg); }
+  60% { transform: translate(0, 4px) rotate(8deg); }
+  85% { transform: translate(0, 0) rotate(0deg); }
+}
+@keyframes cattleHeadB {
+  0%, 100% { transform: translate(0,0) rotate(0deg); }
+  40% { transform: translate(0, 4px) rotate(8deg); }
+  70% { transform: translate(0, 4px) rotate(8deg); }
+  95% { transform: translate(0, 0) rotate(0deg); }
+}
+@keyframes smokeRise {
+  0% { transform: translate(0, 0); opacity: 0.7; }
+  100% { transform: translate(-30px, -120px); opacity: 0; }
+}
+@keyframes walkerWomanWalk {
+  0%   { transform: translate(1380px, 820px) scaleX(-1); }
+  50%  { transform: translate(280px, 808px) scaleX(-1); }
+  51%  { transform: translate(280px, 808px) scaleX(1); }
+  100% { transform: translate(1380px, 820px) scaleX(1); }
+}
+@keyframes walkerManWalk {
+  0%   { transform: translate(160px, 808px) scaleX(1); }
+  50%  { transform: translate(1240px, 820px) scaleX(1); }
+  51%  { transform: translate(1240px, 820px) scaleX(-1); }
+  100% { transform: translate(160px, 808px) scaleX(-1); }
+}
+
+.sun {
+  transform-origin: 1100px 540px;
+  animation: sunRise 18s ease-out forwards;
+}
+.rays {
+  animation: raysSpin 120s linear infinite;
+  transform-origin: 1100px 540px;
+}
+.mist {
+  animation: mistDrift 22s ease-in-out infinite alternate;
+}
+.mist-slow {
+  animation: mistDriftSlow 30s ease-in-out infinite alternate;
+}
+.birds {
+  animation: birdFly 26s linear infinite;
+}
+.star {
+  animation: starTwinkle 4s ease-in-out infinite;
+}
+.star:nth-child(odd) { animation-duration: 5.5s; }
+.star:nth-child(3n) { animation-duration: 7s; }
+
+/* New scene actors */
+.kite {
+  animation: kiteFloat 14s ease-in-out infinite;
+}
+.kite-flutter {
+  animation: kiteFlutter 2.4s ease-in-out infinite;
+  transform-origin: 0 0;
+}
+.kite-kids .kid-jump {
+  animation: kidJump 1.8s ease-in-out infinite;
+}
+.child-bob {
+  animation: childBob 0.55s ease-in-out infinite;
+}
+.smoke {
+  animation: smokeRise 6s ease-out infinite;
+  transform-origin: 680px 600px;
+}
+.bullock-cart {
+  animation: cartCross 70s linear infinite;
+}
+.bullock-cart .wheel-a { animation: wheelSpin 1.2s linear infinite; }
+.bullock-cart .wheel-b { animation: wheelSpin 1.2s linear infinite; }
+.cattle-a {
+  transform: translate(440px, 808px);
+}
+.cattle-a .cattle-head-a {
+  animation: cattleHeadA 5s ease-in-out infinite;
+  transform-origin: 18px -2px;
+}
+.cattle-b {
+  transform: translate(520px, 814px);
+}
+.cattle-b .cattle-head-b {
+  animation: cattleHeadB 6s ease-in-out infinite;
+  transform-origin: 16px -1px;
+}
+.walker-woman {
+  animation: walkerWomanWalk 90s linear infinite;
+}
+.walker-man {
+  animation: walkerManWalk 110s linear infinite;
+}
+
+/* ─── Page transition loader ───────────────────────────────────────── */
+@keyframes loaderRays {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes loaderRaysRev {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+@keyframes loaderDiya {
+  0%, 100% { transform: translateY(0) scale(1); filter: brightness(1); }
+  50% { transform: translateY(-3px) scale(1.04); filter: brightness(1.15); }
+}
+@keyframes loaderDot {
+  0%, 80%, 100% { opacity: 0.25; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-4px); }
+}
+@keyframes loaderMandala {
+  0% { transform: rotate(0deg); opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { transform: rotate(360deg); opacity: 0.5; }
+}
+
+.loader-rays { animation: loaderRays 6s linear infinite; transform-origin: 50% 50%; }
+.loader-rays-rev { animation: loaderRaysRev 9s linear infinite; transform-origin: 50% 50%; }
+.loader-diya { animation: loaderDiya 1.6s ease-in-out infinite; }
+.loader-dot { animation: loaderDot 1.2s ease-in-out infinite; display: inline-block; }
+.loader-mandala { animation: loaderMandala 60s linear infinite; transform-origin: 50% 50%; }
+
+/* Reduced-motion respect */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Number tabular for stats */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
