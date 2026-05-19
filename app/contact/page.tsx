@@ -98,7 +98,7 @@ export default function ContactPage() {
               icon={Phone}
               h="पंचायत हेल्पलाइन"
               en="Panchayat helpline"
-              value="+91 90000 12345"
+              value="+91 1234567890"
               sub="सुबह 9 बजे — शाम 6 बजे"
             />
             <ContactCard
